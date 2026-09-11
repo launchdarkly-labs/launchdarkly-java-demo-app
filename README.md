@@ -7,15 +7,8 @@ without a restart.
 
 ## Quick Start
 
-No LaunchDarkly credentials needed. First install the logger into your local
-Maven repository from its checkout:
-
-```bash
-cd ../launchdarkly-java-logger
-./gradlew publishToMavenLocal
-```
-
-Then run the demo:
+No LaunchDarkly credentials needed, and nothing to install - the logger resolves
+from Maven Central:
 
 ```bash
 ./gradlew run
@@ -213,9 +206,9 @@ rules can vary the level by environment, region, or host with no code change.
 
 ## Developing Against a Local Logger Checkout
 
-By default the logger is resolved from `mavenLocal()`, which exercises the same
-published artifact and POM a real consumer gets. While changing both projects at
-once, build the logger from source instead:
+By default the logger is resolved from Maven Central, which is exactly what a
+real consumer gets. While changing both projects at once, build the logger from
+source instead:
 
 ```bash
 ./gradlew run -PuseLocalLogger
@@ -230,7 +223,7 @@ Run `doctor` first - it checks all of these and says which one applies.
 
 | Symptom | Cause |
 | --- | --- |
-| `Could not find io.github.bradbunce:launchdarkly-java-logger` | Run `./gradlew publishToMavenLocal` in the logger checkout, or use `-PuseLocalLogger` |
+| `Could not find io.github.bradbunce:launchdarkly-java-logger` | Check network access to Maven Central, or use `-PuseLocalLogger` to build it from the sibling checkout |
 | Banner says `backend none` and levels never change | No supported backend is bound to SLF4J. This app uses Logback; Log4j 2 and `java.util.logging` also work |
 | `sdk-log-level` appears to do nothing | Either offline mode (expected) or the SDK is missing `LDSdkLogging.slf4j()` |
 | Levels never change in live mode | Check the flag keys and that the flag is on for a `service`-kind context |
@@ -238,7 +231,7 @@ Run `doctor` first - it checks all of these and says which one applies.
 ## Requirements
 
 - Java 21 or later
-- `launchdarkly-java-logger` 1.0.0 in `mavenLocal()`, or the sibling checkout
+- Network access to Maven Central (or the sibling checkout, with `-PuseLocalLogger`)
 
 ## License
 MIT

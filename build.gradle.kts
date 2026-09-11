@@ -11,9 +11,6 @@ java {
 }
 
 repositories {
-    // The logger is installed here by `./gradlew publishToMavenLocal` in the
-    // launchdarkly-java-logger checkout.
-    mavenLocal()
     mavenCentral()
 }
 

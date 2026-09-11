@@ -17,25 +17,12 @@ jobs:
         with:
           path: demo
 
-      # The demo resolves io.github.bradbunce:launchdarkly-java-logger from mavenLocal,
-      # because the library is not published to Maven Central yet. So CI has to
-      # build it from source first. Once it is published, drop this checkout and
-      # the publishToMavenLocal step.
-      - uses: actions/checkout@v7
-        with:
-          repository: bradbunce/launchdarkly-java-logger
-          path: logger
-
       - uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: "21"
 
       - uses: gradle/actions/setup-gradle@v6
-
-      - name: Install the logger into mavenLocal
-        run: ./gradlew publishToMavenLocal
-        working-directory: logger
 
       - name: Build
         run: ./gradlew build
