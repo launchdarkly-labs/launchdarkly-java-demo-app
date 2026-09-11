@@ -1,0 +1,19 @@
+<configuration>
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- Flush every event, so log lines stay ordered against the demo's own
+         System.out banners. -->
+    <immediateFlush>true</immediateFlush>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %logger{0} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!--
+    Deliberately minimal. The whole point of the demo is that LDLogLevelController
+    overrides these levels at runtime from feature flags, so there is no need to
+    configure levels per logger here.
+  -->
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>
