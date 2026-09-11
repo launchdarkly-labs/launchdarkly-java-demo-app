@@ -2,6 +2,9 @@
 .gradle/
 build/
 
+# Eclipse JDT output, created by the VS Code Java language server
+bin/
+
 # Note: gradle/wrapper/gradle-wrapper.jar is intentionally committed, so that
 # ./gradlew works on a fresh clone. There is deliberately no blanket *.jar rule.
 
