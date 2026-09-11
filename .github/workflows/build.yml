@@ -1,0 +1,53 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: demo
+
+      # The demo resolves dev.bradbunce:launchdarkly-java-logger from mavenLocal,
+      # because the library is not published to Maven Central yet. So CI has to
+      # build it from source first. Once it is published, drop this checkout and
+      # the publishToMavenLocal step.
+      - uses: actions/checkout@v7
+        with:
+          repository: bradbunce/launchdarkly-java-logger
+          path: logger
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - uses: gradle/actions/setup-gradle@v6
+
+      - name: Install the logger into mavenLocal
+        run: ./gradlew publishToMavenLocal
+        working-directory: logger
+
+      - name: Build
+        run: ./gradlew build
+        working-directory: demo
+
+      # Offline mode needs no credentials: with no LD_SDK_KEY the demo drives the
+      # flags through the SDK's TestData source. There is no .env in CI, so this
+      # is offline automatically.
+      - name: Smoke test - diagnostics
+        run: ./gradlew doctor
+        working-directory: demo
+
+      - name: Smoke test - run and quit cleanly
+        run: printf 'q\n' | ./gradlew run --args="--interval 1"
+        working-directory: demo
