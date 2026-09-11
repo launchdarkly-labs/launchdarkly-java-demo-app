@@ -230,7 +230,7 @@ Run `doctor` first - it checks all of these and says which one applies.
 
 | Symptom | Cause |
 | --- | --- |
-| `Could not find dev.bradbunce:launchdarkly-java-logger` | Run `./gradlew publishToMavenLocal` in the logger checkout, or use `-PuseLocalLogger` |
+| `Could not find io.github.bradbunce:launchdarkly-java-logger` | Run `./gradlew publishToMavenLocal` in the logger checkout, or use `-PuseLocalLogger` |
 | Banner says `backend none` and levels never change | No supported backend is bound to SLF4J. This app uses Logback; Log4j 2 and `java.util.logging` also work |
 | `sdk-log-level` appears to do nothing | Either offline mode (expected) or the SDK is missing `LDSdkLogging.slf4j()` |
 | Levels never change in live mode | Check the flag keys and that the flag is on for a `service`-kind context |

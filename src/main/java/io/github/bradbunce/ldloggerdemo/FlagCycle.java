@@ -1,9 +1,9 @@
-package dev.bradbunce.ldloggerdemo;
+package io.github.bradbunce.ldloggerdemo;
 
 import com.launchdarkly.sdk.LDValue;
 import com.launchdarkly.sdk.server.integrations.TestData;
-import dev.bradbunce.ldlogger.ConsoleLogLevel;
-import dev.bradbunce.ldlogger.SdkLogLevel;
+import io.github.bradbunce.ldlogger.ConsoleLogLevel;
+import io.github.bradbunce.ldlogger.SdkLogLevel;
 import java.util.List;
 
 /**

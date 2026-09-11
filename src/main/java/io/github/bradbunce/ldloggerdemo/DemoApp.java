@@ -1,13 +1,13 @@
-package dev.bradbunce.ldloggerdemo;
+package io.github.bradbunce.ldloggerdemo;
 
 import com.launchdarkly.sdk.server.Components;
 import com.launchdarkly.sdk.server.LDClient;
 import com.launchdarkly.sdk.server.LDConfig;
-import dev.bradbunce.ldlogger.ConsoleLogLevel;
-import dev.bradbunce.ldlogger.LDLogLevelController;
-import dev.bradbunce.ldlogger.LDSdkLogging;
-import dev.bradbunce.ldlogger.LogLevel;
-import dev.bradbunce.ldlogger.SdkLogLevel;
+import io.github.bradbunce.ldlogger.ConsoleLogLevel;
+import io.github.bradbunce.ldlogger.LDLogLevelController;
+import io.github.bradbunce.ldlogger.LDSdkLogging;
+import io.github.bradbunce.ldlogger.LogLevel;
+import io.github.bradbunce.ldlogger.SdkLogLevel;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

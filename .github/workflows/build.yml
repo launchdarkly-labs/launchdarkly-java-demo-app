@@ -17,7 +17,7 @@ jobs:
         with:
           path: demo
 
-      # The demo resolves dev.bradbunce:launchdarkly-java-logger from mavenLocal,
+      # The demo resolves io.github.bradbunce:launchdarkly-java-logger from mavenLocal,
       # because the library is not published to Maven Central yet. So CI has to
       # build it from source first. Once it is published, drop this checkout and
       # the publishToMavenLocal step.

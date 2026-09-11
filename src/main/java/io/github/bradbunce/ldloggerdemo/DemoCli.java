@@ -1,4 +1,4 @@
-package dev.bradbunce.ldloggerdemo;
+package io.github.bradbunce.ldloggerdemo;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -74,7 +74,10 @@ record DemoCli(Mode mode, Map<String, String> overrides, boolean interactive) {
                 return new DemoCli(Mode.INVALID, Map.of(), false);
             }
             if (value == null) {
-                if (i + 1 >= args.length) {
+                // A value that looks like another option almost always means the
+                // intended value went missing, so say so rather than silently
+                // swallowing the next flag.
+                if (i + 1 >= args.length || args[i + 1].startsWith("--")) {
                     System.out.printf("Option %s needs a value%n%n", name);
                     printUsage();
                     return new DemoCli(Mode.INVALID, Map.of(), false);

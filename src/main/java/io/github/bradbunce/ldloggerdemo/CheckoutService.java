@@ -1,4 +1,4 @@
-package dev.bradbunce.ldloggerdemo;
+package io.github.bradbunce.ldloggerdemo;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import org.slf4j.Logger;

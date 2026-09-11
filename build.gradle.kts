@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.bradbunce:launchdarkly-java-logger:1.0.0")
+    implementation("io.github.bradbunce:launchdarkly-java-logger:1.0.0")
 
     // The logger declares these compileOnly on purpose, so a consumer supplies
     // them. Getting this wrong is the most likely first-use mistake, which makes
@@ -28,7 +28,7 @@ dependencies {
 }
 
 application {
-    mainClass = "dev.bradbunce.ldloggerdemo.DemoApp"
+    mainClass = "io.github.bradbunce.ldloggerdemo.DemoApp"
 }
 
 /**

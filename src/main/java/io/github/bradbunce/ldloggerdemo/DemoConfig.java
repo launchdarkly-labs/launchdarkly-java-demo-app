@@ -1,4 +1,4 @@
-package dev.bradbunce.ldloggerdemo;
+package io.github.bradbunce.ldloggerdemo;
 
 import com.launchdarkly.sdk.LDContext;
 import java.util.Map;
