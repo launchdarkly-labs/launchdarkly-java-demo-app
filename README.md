@@ -1,6 +1,6 @@
 # LaunchDarkly Java Demo App
 
-A sample app for [launchdarkly-java-logger](https://github.com/bradbunce/launchdarkly-java-logger).
+A sample app for [launchdarkly-java-logger](https://github.com/launchdarkly-labs/launchdarkly-java-logger).
 It logs at every level on a timer while the library drives those levels from
 feature flags, so you can watch a running process change its own log verbosity
 without a restart.
